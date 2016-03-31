@@ -1,0 +1,44 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <RelativeLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/messages_backup_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/contact_backup_image"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:onClick="restoreMessages"
+            android:background="@drawable/messages"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:id="@+id/drive_backup_image"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_below="@+id/messages_backup_image"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:onClick="retrieveFromDrive"
+            android:background="@drawable/drive"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+           android:id="@+id/contact_backup_image"
+           android:layout_width="150dp"
+           android:layout_height="150dp"
+           android:layout_alignParentTop="true"
+           android:layout_alignParentLeft="true"
+           android:layout_marginBottom="10dp"
+           android:clickable="true"
+           android:onClick="restoreContacts"
+           android:background="@drawable/contacts"/>
+
+  </RelativeLayout>
+</FrameLayout>

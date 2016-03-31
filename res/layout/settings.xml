@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="10dp">
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Backup Location"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>    
+    
+<RadioGroup android:id="@+id/radioGroup"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioButton
+        android:id="@+id/defaultPathOp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Default Path"
+        android:onClick="onRadioButtonClicked" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    
+    <RadioButton
+        android:id="@+id/customPathOp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CustomPath"
+        android:onClick="onRadioButtonClicked"/> 
+        
+</RadioGroup>
+
+   <EditText
+        android:id="@+id/customPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+    </EditText>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drive Backup"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:paddingTop="10dp"/>    
+        
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>    
+   
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="Save to Drive immediately after backup" 
+        android:onClick="onCheckBoxClicked"/>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>    
+
+</LinearLayout>
