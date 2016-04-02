@@ -35,6 +35,8 @@ public class RestoreFragment extends Fragment{
 	public TextView messages;
 	public TextView drive;	
 	
+	Activity mActivity;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
 			Bundle savedInstanceState){
@@ -44,14 +46,7 @@ public class RestoreFragment extends Fragment{
 		messages = (TextView) rootView.findViewById(R.id.messages_backup_image);
 		drive = (TextView) rootView.findViewById(R.id.drive_backup_image);
 		
-		contacts.setHeight(MainActivity.height);
-		contacts.setWidth(MainActivity.width);
-		
-		messages.setHeight(MainActivity.height);
-		messages.setWidth(MainActivity.width);
-		
-		drive.setHeight(MainActivity.height);
-		drive.setWidth(MainActivity.width);	
+		mActivity = getActivity();
 				
 		return rootView;
 	}
@@ -174,24 +169,13 @@ public class RestoreFragment extends Fragment{
 	}
 	
 	public void restoreContacts(){
-		//Select the file for restoring contacts
-		//Intent getFilePath = new Intent(Intent.ACTION_GET_CONTENT);
-		//getFilePath.setType("*/*");
-		//startActivityForResult(Intent.createChooser(getFilePath, "Choose File to Restore from")
-		//		, 1);		
-		
-		Intent intent = new Intent(getActivity(), FileExplorer.class);
+		Intent intent = new Intent(mActivity, FileExplorer.class);
 		intent.putExtra("whoCalled", "RestoreFragment.restoreContacts");
 		startActivity(intent);
 	}
 	
 	public void restoreMessages(){
-		//Intent getFilePath = new Intent(Intent.ACTION_GET_CONTENT);
-		//getFilePath.setType("*/*");
-		//startActivityForResult(Intent.createChooser(getFilePath, "Choose File to Restore fom")
-		//		, 2);	
-		
-		Intent intent = new Intent(getActivity(), FileExplorer.class);
+		Intent intent = new Intent(mActivity, FileExplorer.class);
 		intent.putExtra("whoCalled", "RestoreFragment.restoreMessages");
 		startActivity(intent);
 	}

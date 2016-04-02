@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import com.example.backup_and_restore.settingsTableInfo.settingsDBTable;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -55,6 +56,8 @@ public class BackupFragment extends Fragment{
 	public TextView messages;
 	public TextView drive;
 	
+	Activity mActivity;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
 			Bundle savedInstanceState){
@@ -64,16 +67,9 @@ public class BackupFragment extends Fragment{
 		messages = (TextView) rootView.findViewById(R.id.messages_backup_image);
 		drive = (TextView) rootView.findViewById(R.id.drive_backup_image);
 		
-		contacts.setHeight(MainActivity.height);
-		contacts.setWidth(MainActivity.width);
-		
-		messages.setHeight(MainActivity.height);
-		messages.setWidth(MainActivity.width);
-		
-		drive.setHeight(MainActivity.height);
-		drive.setWidth(MainActivity.width);
-		
 		DOP = new DatabaseOperations(getActivity());
+		
+		mActivity = getActivity();
 		
 		return rootView;
 	}
@@ -152,14 +148,9 @@ public class BackupFragment extends Fragment{
 	}
 	         	
 	public void saveToDrive(){
-	    //Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-	    //intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().toString())
-	    //		, "file/*");
-	    //startActivityForResult(intent, 3);		
-	    
-		Intent intent = new Intent(getActivity(), FileExplorer.class);
-		intent.putExtra("whoCalled", "BackupFragment.saveToDrive");
-		startActivity(intent);
+			Intent intent = new Intent(mActivity, FileExplorer.class);
+			intent.putExtra("whoCalled", "BackupFragment.saveToDrive");
+			startActivity(intent);			
 	}
 	
 	private boolean writeMessageBackup() {

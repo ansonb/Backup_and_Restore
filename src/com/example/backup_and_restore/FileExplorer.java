@@ -102,6 +102,8 @@ public class FileExplorer extends Activity{
 					intent.putExtra("whoCalled", whoCalled);
 					intent.setData(Uri.fromFile(sd));
 					startActivity(intent);
+					
+					MainActivity.ActivityLifeHandler.sendEmptyMessage(1);
 					finish();
 					
 				}

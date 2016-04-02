@@ -61,6 +61,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     static ProgressDialog mProgressDialog;
 
     static Handler mHandler;
+    static Handler ActivityLifeHandler;
     
     static int width, height;
     
@@ -96,6 +97,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         	@Override
         	public void handleMessage(Message message) {
+        		super.handleMessage(message);
+        		
         		final String s = message.getData().getString("dialog_msg");
 				new AlertDialog.Builder(context)
 		           .setMessage(s)
@@ -120,8 +123,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 							}		            	   
 		               }
 		           })
-		           .show();	        	
+		           .show();	      
+
             }        	
+        };
+        
+        ActivityLifeHandler = new Handler(Looper.getMainLooper()){
+        	@Override
+        	public void handleMessage(Message message){
+        		super.handleMessage(message);
+        		
+        		switch(message.what){
+        		case 1:
+        			finish();
+        			break;
+        		}
+        	}
         };
         
         mProgressDialog = new ProgressDialog(MainActivity.this);
